@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - ShopEasy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <style>
+        .search-section {
+            background: transparent;
+            padding: 60px 0;
+            min-height: 400px;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 50px 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .search-container h2 {
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            font-size: 1rem;
+            color: white;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(74, 109, 229, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .search-box button {
+            background: rgba(74, 109, 229, 0.3);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .search-box button:hover {
+            background: rgba(74, 109, 229, 0.45);
+            box-shadow: 0 8px 25px rgba(74, 109, 229, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .search-results {
+            margin-top: 20px;
+        }
+
+        .search-results > p {
+            color: white;
+            text-align: center;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-results h3 {
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .result-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+
+        .result-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .result-item h3 {
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .result-item p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+        }
+
+        .result-item a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .result-item a:hover {
+            color: #00f0ff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <h1>ShopEasy</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <a href="search.html"><i class="fas fa-search"></i></a>
+                <a href="account.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <h2 class="section-title">Search Products</h2>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search for products, categories, etc...">
+                <button onclick="performSearch()">Search</button>
+            </div>
+
+            <div class="search-results">
+                <!-- Search results will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ShopEasy</h3>
+                    <p>Your one-stop destination for all your shopping needs. Quality products at affordable prices.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="deals.html">New Arrivals</a></li>
+                        <li><a href="deals.html">Best Sellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Near Centurion University, Jatani</li>
+                        <li><i class="fas fa-phone"></i> 7008422011</li>
+                        <li><i class="fas fa-envelope"></i> maharanaprakash104@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 ShopEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const resultsDiv = document.querySelector('.search-results');
+            
+            if (!searchTerm) {
+                resultsDiv.innerHTML = '<p>Please enter a search term.</p>';
+                return;
+            }
+
+            // TODO: Replace with actual API call to fetch products from backend
+            // Example: fetch(`/api/products/search?q=${searchTerm}`)
+            
+            resultsDiv.innerHTML = '<p>Fetching results...</p>';
+        }
+
+        // Allow search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+</body>
+</html>

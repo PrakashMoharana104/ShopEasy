@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - ShopEasy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <style>
+        .faq-section {
+            background: transparent;
+            padding: 60px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid #00d4ff;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+        }
+
+        .faq-question {
+            background: transparent;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            color: white;
+            font-size: 1.1rem;
+            flex: 1;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-question i {
+            color: #00d4ff;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <h1>ShopEasy</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <button class="search-icon" title="Search"><i class="fas fa-search"></i></button>
+                <a href="account.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I place an order?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To place an order, simply browse our products, add items to your cart, and proceed to checkout. You'll need to create an account or log in with your existing account. Then, enter your shipping and payment information to complete your purchase.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What payment methods do you accept?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept all major credit cards (Visa, Mastercard, American Express), debit cards, PayPal, and other popular digital payment methods. All transactions are secure and encrypted.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does shipping take?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Standard shipping typically takes 5-7 business days. We also offer express shipping (2-3 business days) and overnight shipping options at checkout. You'll receive a tracking number via email once your order ships.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your return policy?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 30-day return guarantee on most items. Products must be unused and in original packaging. To initiate a return, contact our customer service team with your order number. Once approved, you'll receive a prepaid return label.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I track my order?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can track your order by visiting the "Track Order" page and entering your order number and email address. Alternatively, check the tracking link provided in your shipping confirmation email.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is my personal information secure?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we take security very seriously. Our website uses SSL encryption to protect your personal and payment information. We never share your data with third parties unless required by law.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I cancel my order?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can cancel your order within 24 hours of placing it. Contact customer service immediately with your order number. If your order has already shipped, you'll need to initiate a return instead.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I contact customer support?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can reach our customer support team via email at support@shopeasy.com or call (123) 456-7890. We're available Monday through Saturday, 9 AM to 8 PM. You can also use our contact form on the Contact Us page.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ShopEasy</h3>
+                    <p>Your one-stop destination for all your shopping needs. Quality products at affordable prices.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="deals.html">New Arrivals</a></li>
+                        <li><a href="deals.html">Best Sellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Near Centurion University, Jatani</li>
+                        <li><i class="fas fa-phone"></i> 7008422011</li>
+                        <li><i class="fas fa-envelope"></i> maharanaprakash104@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 ShopEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div id="searchModal">
+        <div class="search-modal-content">
+            <div class="search-header">
+                <h2>Search Products</h2>
+                <button id="closeSearch" type="button" title="Close"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="searchForm">
+                <div class="search-input-group">
+                    <input type="text" id="searchInput" placeholder="Search for products, categories...">
+                    <button type="submit" class="search-submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <div id="searchResults"></div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/search.js"></script>
+    <script>
+        // Toggle FAQ items
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
