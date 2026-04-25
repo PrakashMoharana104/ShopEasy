@@ -1,6 +1,5 @@
 // Cart functionality
 const CART_KEY = 'shopeasy_cart';
-const API_URL = 'http://localhost:8080/api';
 
 // Get current user ID (from localStorage or session)
 function getUserId() {
@@ -16,7 +15,7 @@ function addToCart(e) {
     const userId = getUserId();
 
     // Try to add via API, fallback to localStorage if offline
-    fetch(API_URL + '/cart/add', {
+    fetch('/api/cart/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -1,24 +1,47 @@
 // Search functionality
-const API_URL = 'http://localhost:8080/api';
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeSearch();
 });
 
 function initializeSearch() {
-    const searchIcon = document.querySelector('.search-icon');
+
+    const searchIcons = document.querySelectorAll('.search-icon');
     const searchModal = document.getElementById('searchModal');
     const closeSearchBtn = document.getElementById('closeSearch');
     const searchInput = document.getElementById('searchInput');
     const searchForm = document.getElementById('searchForm');
 
-    if (!searchIcon || !searchModal) return;
+    if (!searchIcons.length) {
+        console.error('No .search-icon button found.');
+        return;
+    }
+    if (!searchModal) {
+        console.error('No #searchModal found.');
+        return;
+    }
+    if (!closeSearchBtn) {
+        console.error('No #closeSearch button found.');
+        return;
+    }
+    if (!searchInput) {
+        console.error('No #searchInput found.');
+        return;
+    }
+    if (!searchForm) {
+        console.error('No #searchForm found.');
+        return;
+    }
 
-    // Open search modal
-    searchIcon.addEventListener('click', function(e) {
-        e.preventDefault();
-        searchModal.classList.add('active');
-        searchInput.focus();
+    // Open search modal for all search icons
+    searchIcons.forEach(function(searchIcon) {
+        searchIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Search button clicked');
+            searchIcon.style.border = '2px solid red'; // Debug: show border
+            searchModal.classList.add('active');
+            searchInput.focus();
+        });
     });
 
     // Close search modal
@@ -67,7 +90,7 @@ function performSearch() {
     }
 
     // Search from backend API
-    fetch(API_URL + '/search?q=' + encodeURIComponent(query))
+    fetch('/api/search?q=' + encodeURIComponent(query))
         .then(response => response.json())
         .then(products => {
             if (!Array.isArray(products) || products.length === 0) {

@@ -227,31 +227,9 @@
         </div>
     </footer>
 
+    <script src="../js/config.js"></script>
     <script src="../js/navigation.js"></script>
     <script src="../js/cart.js"></script>
-    <script src="../js/main.js"></script>
-    <script>
-        function performSearch() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const resultsDiv = document.querySelector('.search-results');
-            
-            if (!searchTerm) {
-                resultsDiv.innerHTML = '<p>Please enter a search term.</p>';
-                return;
-            }
-
-            // TODO: Replace with actual API call to fetch products from backend
-            // Example: fetch(`/api/products/search?q=${searchTerm}`)
-            
-            resultsDiv.innerHTML = '<p>Fetching results...</p>';
-        }
-
-        // Allow search on Enter key
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-    </script>
+    <script src="../js/search.js"></script>
 </body>
 </html>
