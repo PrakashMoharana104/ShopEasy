@@ -97,4 +97,10 @@ function clearCart() {
 // Initialize cart display on page load
 document.addEventListener('DOMContentLoaded', function() {
     updateCartCount();
+    
+    // Add event listeners to add-to-cart buttons
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
 });
